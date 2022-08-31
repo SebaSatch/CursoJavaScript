@@ -1,20 +1,17 @@
-alert("Bienvenido a la Nutricalculeitor dude")
-var saludo = prompt("Empezamos??");   
+alert("Bienvenido a la Calculadora Nutricional")
+var saludo = prompt("Empezamos?? (digite NO para salir)");   
+while (saludo.toUpperCase() != "NO"){
+        var peso = prompt('Cual es tu peso?');
+        var altura = prompt('Cual es tu altura en cm?');
+        var muñeca = prompt('Cual es la circunferencia de tu muñeca en cm?');
+        var edad = prompt('Cuantos años tenés?');
+        var sexo = prompt('Sexo femenino o masculino?');
+        var actividadFisica = prompt('Actividad Fisica nula/leve, moderada o intensa?');
 
-while (saludo != "no"){
-        let peso = prompt('Cual es tu peso chamigo?');
+        var sexo = sexo.toUpperCase ()
+        var actividadFisica = actividadFisica.toUpperCase()
 
-        let altura = prompt('Cual es tu altura en cm maeser?');
-
-        let muñeca = prompt('Cual es la circunferencia de tu muñeca?');
-
-        let edad = prompt('Cuan jovato estas?');
-
-        let sexo = prompt('Tenes pito?');
-
-        let actividadFisica = prompt('Actividad Fisica nula/leve, moderada o intensa?');
-
-        if (sexo == "no"){
+        if (sexo == "FEMENINO"){
                 if (edad > 0 && edad < 3){ var primercalculo = (58.317*peso)-31.11;
                 }
                 else if (edad >= 3 && edad < 10){ var primercalculo = (20.315*peso)+485.9;
@@ -30,7 +27,7 @@ while (saludo != "no"){
                 if ((altura/muñeca) > 11) { alert(`tu contextura es pequeña`)}
                 if ((altura/muñeca) >= 10.1 && (altura/muñeca) <= 11) { alert(`tu contextura es mediana`)}
                 if ((altura/muñeca) < 10.1) { alert(`tu contextura es grande`)}
-        }else if (sexo == "si"){
+        }else if (sexo == "MASCULINO"){
                 if (edad > 0 && edad < 3){ var primercalculo = (59.512*peso)-30.4;
                 }
                 else if (edad >= 3 && edad < 10){ var primercalculo = (22.706*peso)+504.3;
@@ -43,22 +40,23 @@ while (saludo != "no"){
                 }
                 else if (edad >=60){ var primercalculo = (11.711*peso)+587.7;
                 }
-                if ((altura/muñeca) > 10.4) { alert(`tu contextura es pequeña`)}
-                if ((altura/muñeca) >= 9.6 && (altura/muñeca) <= 10.4) { alert(`tu contextura es mediana`)}
-                if ((altura/muñeca) < 9.6) { alert(`tu contextura es grande`)}
-                alert(`tu MB - Metabolismo Basal es de ${primercalculo}`)
+                if ((altura/muñeca) > 10.4) { alert(`Tu contextura es pequeña`)}
+                if ((altura/muñeca) >= 9.6 && (altura/muñeca) <= 10.4) { alert(`Tu contextura es mediana`)}
+                if ((altura/muñeca) < 9.6) { alert(`Tu contextura es grande`)}
+                alert(`Tu MB - Metabolismo Basal es de ${primercalculo}`)
         }
 
-        if (actividadFisica == "nula" || actividadFisica == "leve") {
+        if (actividadFisica == "NULA" || actividadFisica == "LEVE") {
             var calculofinal = primercalculo*1.30}
-        else if (actividadFisica == "moderada") {   
+        else if (actividadFisica == "MODERADA") {   
             var calculofinal = primercalculo*1.50}
-        else if (actividadFisica == "intensa") {   
+        else if (actividadFisica == "INTENSA") {   
             var calculofinal = primercalculo*1.75}      
 
         alert(`tu VCT - Valor Calorico Total es de ${calculofinal} Kcal.`)
 
         var saludo = prompt("Sacamos otro calculo?");
+        var saludo = saludo.toUpperCase();
 }
 
-alert("gracias por venir capo")
+alert("Gracias por usar la Calculadora Nutricional")
