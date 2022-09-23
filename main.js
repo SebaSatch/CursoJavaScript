@@ -84,9 +84,25 @@ const mostrar = []
 mostrar.push({Nombre:nombre, DNI:DNI, MB:primercalculo, VCT:calculofinal});
 console.log(mostrar)
 
+/////// COMO TODAS MIS VARIABLES SON INGRESADAS POR EL USUARIO, NO TENIA UNA TABLA PARA TENER PRECARGADA EN EL LOCAL, ASI QUE LO QUE HICE FUE SUBIR EL OBJETO CREADO CON LA DATA INGRESADA POR EL USUARIO AL LOCAL, Y TRAERLA DESDE AHI PARA MOSTRARLA EN PANTALLA.
 
+// ACA AGARRO LOS RESULTADOS DEL USUARIO Y LOS SUBO AL LOCAL EN FORMATO JSON
+let localdata = JSON.stringify({Nombre:nombre, DNI:DNI, MB:primercalculo, VCT:calculofinal});
+localStorage.setItem("datos", localdata);
 
-for (dato of mostrar) {  
+// ACA CREO UNA VARIABLE PARA PODER TRAER EL OBJETO DESDE EL LOCAL 
+let dataparseada = JSON.parse(localStorage.getItem("datos"))
+console.log(dataparseada)
+
+// A LA DATA QUE TRAJE DESDE EL LOCAL LA METO ADENTRO DE UN ARRAY
+
+const mostrarlocal = []
+mostrarlocal.push(dataparseada)
+console.log(mostrarlocal)
+
+// FINALMENTE, HAGO UN FOR  PARA QUE ME MUESTRE LA DATA CONTENIDA EN EL OBJETO CARGADO EN EL ARRAY. 
+
+for (dato of mostrarlocal) {  
     let div = document.createElement("div")  
     div.innerHTML = 
     `<h2> Nombre:${dato.Nombre}</h2> <br>
@@ -110,4 +126,3 @@ for (dato of mostrar) {
 
 
 )
-
