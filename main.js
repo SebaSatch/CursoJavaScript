@@ -6,7 +6,10 @@ const mostrar = []
 let formulario = document.getElementById("formulario");
 let contenedor = document.getElementById("contenedor");
 
+
+
 formulario.addEventListener("submit", (e) => {
+
     const datostotales = [];
     e.preventDefault ()
     contenedor.innerHTML = ""
@@ -48,6 +51,8 @@ formulario.addEventListener("submit", (e) => {
     console.log(edad)
 
 
+
+
     if (sexo.toUpperCase() == "FEMENINO"){
         if (edad > 0 && edad < 3){ var primercalculo = (58.317*peso)-31.11;}
         else if (edad >= 3 && edad < 10){ var primercalculo = (20.315*peso)+485.9;}
@@ -55,9 +60,9 @@ formulario.addEventListener("submit", (e) => {
         else if (edad >= 18 && edad < 30){ var primercalculo = (14.818*peso)+486.6;}
         else if (edad >= 30 && edad < 60){ var primercalculo = (8.126*peso)+845.6;}
         else if (edad >=60){ var primercalculo = (9.082*peso)+658.5;}
-        if ((altura/muñeca) > 11) { alert(`tu contextura es pequeña`)}
-        if ((altura/muñeca) >= 10.1 && (altura/muñeca) <= 11) { alert(`tu contextura es mediana`)}
-        if ((altura/muñeca) < 10.1) { alert(`tu contextura es grande`)}
+        if ((altura/muñeca) > 11) { swal.fire(`tu contextura es pequeña`)}
+        if ((altura/muñeca) >= 10.1 && (altura/muñeca) <= 11) { swal.fire(`tu contextura es mediana`)}
+        if ((altura/muñeca) < 10.1) { swal.fire(`tu contextura es grande`)}
     }else if (sexo.toUpperCase() == "MASCULINO"){
         if (edad > 0 && edad < 3){ var primercalculo = (59.512*peso)-30.4;}
         else if (edad >= 3 && edad < 10){ var primercalculo = (22.706*peso)+504.3;}
@@ -68,9 +73,9 @@ formulario.addEventListener("submit", (e) => {
         if ((altura/muñeca) > 10.4) { alert(`Tu contextura es pequeña`)}
         if ((altura/muñeca) >= 9.6 && (altura/muñeca) <= 10.4) { alert(`Tu contextura es mediana`)}
         if ((altura/muñeca) < 9.6) { alert(`Tu contextura es grande`)}
-    alert(`Tu MB - Metabolismo Basal es de ${primercalculo}`)
+        // alert(`Tu MB - Metabolismo Basal es de ${primercalculo}`)
+        swal.fire(`Tu MB - Metabolismo Basal es de ${primercalculo}`)
     }
-
     
     if (actividadFisica.toUpperCase() == "NULA" || actividadFisica.toUpperCase() == "LEVE") {
         var calculofinal = primercalculo*1.30}
@@ -78,7 +83,8 @@ formulario.addEventListener("submit", (e) => {
         var calculofinal = primercalculo*1.50}
     else if (actividadFisica.toUpperCase() == "INTENSA") {    
         var calculofinal = primercalculo*1.75}      
-    alert(`tu VCT - Valor Calorico Total es de ${calculofinal} Kcal.`)
+    // alert(`tu VCT - Valor Calorico Total es de ${calculofinal} Kcal.`)
+    Swal.fire(`tu VCT - Valor Calorico Total es de ${calculofinal} Kcal.`)
 
 const mostrar = []
 mostrar.push({Nombre:nombre, DNI:DNI, MB:primercalculo, VCT:calculofinal});
@@ -104,25 +110,33 @@ console.log(mostrarlocal)
 
 for (dato of mostrarlocal) {  
     let div = document.createElement("div")  
-    div.innerHTML = 
-    `<h2> Nombre:${dato.Nombre}</h2> <br>
-    <h2> DNI:${dato.DNI}</h2><br>
-    <h2> MB:${dato.MB}</h2> <br>
-    <h2> VST:${dato.VCT}</h2>`    
-    contenedor.append(div) ; 
+    div.innerHTML =    
+        Toastify({
+        text: ` Nombre: ${dato.Nombre}
+        DNI: ${dato.DNI}
+        MB: ${dato.MB} 
+        VST: ${dato.VCT}` ,
+        duration: 9000,
+        destination: "https://github.com/apvarun/toastify-js",
+        newWindow: true,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "left", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          background: "linear-gradient(to right, #00b09b, #96c93d)",
+
+          
+        },
+        onClick: function(){} // Callback after click
+      }).showToast();
+   ; 
     }
+
+
+
+    
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 )
