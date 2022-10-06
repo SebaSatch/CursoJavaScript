@@ -70,9 +70,41 @@ formulario.addEventListener("submit", (e) => {
         else if (edad >= 18 && edad < 30){ var primercalculo = (15.057*peso)+692.2;}  
         else if (edad >= 30 && edad < 60){ var primercalculo = (11.472*peso)+873.1;}
         else if (edad >=60){ var primercalculo = (11.711*peso)+587.7;}
-        if ((altura/muñeca) > 10.4) { alert(`Tu contextura es pequeña`)}
-        if ((altura/muñeca) >= 9.6 && (altura/muñeca) <= 10.4) { alert(`Tu contextura es mediana`)}
-        if ((altura/muñeca) < 9.6) { alert(`Tu contextura es grande`)}
+        if ((altura/muñeca) > 10.4) { alert(`Tu contextura es pequeña`)
+            const div = document.getElementById("contenedor");
+            fetch("./data.json")
+            .then(Response => Response.json())
+            .then(data => {
+                data.forEach(plan => {
+                    const div = document.createElement("div");
+                    div.innerHTML = `${plan.A} `;
+                    contenedor.append(div);
+            })
+                })}
+        if ((altura/muñeca) >= 9.6 && (altura/muñeca) <= 10.4) { alert(`Tu contextura es mediana`)
+        const div = document.getElementById("contenedor");
+        fetch("./data.json")
+        .then(Response => Response.json())
+        .then(data => {
+            data.forEach(plan => {
+                const div = document.createElement("div");
+                div.innerHTML = `${plan.B}`;
+                contenedor.append(div);
+        })
+                })}
+        if ((altura/muñeca) < 9.6) { alert(`Tu contextura es grande`)
+        const div = document.getElementById("contenedor");
+        fetch("./data.json")
+        .then(Response => Response.json())
+
+        .then(data => {
+            data.forEach(plan => {
+                const div = document.createElement("div");
+                div.innerHTML = `${plan.C}`;
+                contenedor.append(div);
+        })
+
+})}
         // alert(`Tu MB - Metabolismo Basal es de ${primercalculo}`)
         swal.fire(`Tu MB - Metabolismo Basal es de ${primercalculo}`)
     }
@@ -108,30 +140,30 @@ console.log(mostrarlocal)
 
 // FINALMENTE, HAGO UN FOR  PARA QUE ME MUESTRE LA DATA CONTENIDA EN EL OBJETO CARGADO EN EL ARRAY. 
 
-for (dato of mostrarlocal) {  
-    let div = document.createElement("div")  
-    div.innerHTML =    
-        Toastify({
-        text: ` Nombre: ${dato.Nombre}
-        DNI: ${dato.DNI}
-        MB: ${dato.MB} 
-        VST: ${dato.VCT}` ,
-        duration: 9000,
-        destination: "https://github.com/apvarun/toastify-js",
-        newWindow: true,
-        close: true,
-        gravity: "top", // `top` or `bottom`
-        position: "left", // `left`, `center` or `right`
-        stopOnFocus: true, // Prevents dismissing of toast on hover
-        style: {
-          background: "linear-gradient(to right, #00b09b, #96c93d)",
+// for (dato of mostrarlocal) {  
+//     let div = document.createElement("div")  
+//     div.innerHTML =    
+//         Toastify({
+//         text: ` Nombre: ${dato.Nombre}
+//         DNI: ${dato.DNI}
+//         MB: ${dato.MB} 
+//         VST: ${dato.VCT}` ,
+//         duration: 9000,
+//         destination: "https://github.com/apvarun/toastify-js",
+//         newWindow: true,
+//         close: true,
+//         gravity: "top", // `top` or `bottom`
+//         position: "left", // `left`, `center` or `right`
+//         stopOnFocus: true, // Prevents dismissing of toast on hover
+//         style: {
+//         background: "linear-gradient(to right, #00b09b, #96c93d)",
 
-          
-        },
-        onClick: function(){} // Callback after click
-      }).showToast();
-   ; 
-    }
+        
+//         },
+//         onClick: function(){} // Callback after click
+//     }).showToast();
+// ; 
+//     }
 
 
 
