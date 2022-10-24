@@ -1,5 +1,6 @@
 [
-    {"A":"paleo","B": "veggie","C": "aspera"},
-    {"A":"Kcal 2000","B": "Kcal 1500","C":"Kcal 4300"},
-    {"A":"Valor 500 pesos","B": "valor 700 pesos","C": "Valor 400 pesos"}
+    {"A":"Se recomienda una dieta paleo con un consumo inicial de 4000 kcal",
+    "B": "Se recomienda una dieta Cetogénica con un consumo inicial de 2900 kcal",
+    "C": "Se recomienda una dieta Veggie con un consumo inicial de 4500 kcal"}
+    
 ]

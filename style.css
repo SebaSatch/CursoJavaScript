@@ -1,4 +1,3 @@
-
       html, body {
       min-height: 100%;
       padding: 0;
@@ -12,6 +11,21 @@
       font-weight: 400;
       color: #cbd3d7;
       }
+      h2 {  
+            color: white;
+            margin-left: 20PX;
+      }
+      #contenedor, #contenedor2, #contenedor3 {
+            color: white;
+            font-size: large;
+            display: flex;
+            flex-direction: column;
+            margin: 20px;
+            text-align: left;
+      }
+
+
+
       p {
       margin: 0 0 5px;
       }
