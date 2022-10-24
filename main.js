@@ -251,7 +251,7 @@ formulario.addEventListener("submit", (e) => {
             onClick: function(){} 
         }).showToast();
     }
-    else if (actividadFisica.toUpperCase() == "INTENSA") {    
+    else if (actividadFisica.toUpperCase() == "INTENSA" || actividadFisica.toUpperCase() == "INTENSIVA") {    
         calculofinal = primercalculo*1.75
         dieta = localStorage.getItem('rutina3');
         Toastify({
